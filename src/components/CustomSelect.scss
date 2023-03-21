@@ -1,0 +1,106 @@
+@import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@500&display=swap");
+$cust-padding: 0 0.5rem;
+$block-height: 2.75rem;
+$primary-color: blue;
+$secondary-color: white;
+$cust-border-radius: 0.25rem;
+$cust-fontsize: 1rem;
+$cust-font-color: #333;
+.d-none {
+  display: none;
+}
+.drop-down-arrow {
+  content: url(./../assets/caret-down-solid.svg);
+  width: 1.5rem;
+  height: 1.5rem;
+  cursor: pointer;
+}
+.drop-up-arrow {
+  content: url(./../assets/caret-up-solid.svg);
+  height: 1.5rem;
+  width: 1.5rem;
+  cursor: pointer;
+}
+.container {
+  color: $cust-font-color;
+  font-size: $cust-fontsize;
+  box-sizing: border-box;
+  font-family: "Montserrat", sans-serif;
+  user-select: none;
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  input {
+    font-size: $cust-fontsize;
+    font-family: "Montserrat", sans-serif;
+    color: $cust-font-color;
+  }
+  span {
+    display: block;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+  .selected-content {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background-color: $secondary-color;
+    padding: $cust-padding;
+    border-radius: $cust-border-radius;
+    input {
+      background: transparent;
+      outline: 0;
+      border: 0;
+      height: $block-height;
+    }
+  }
+  .selectable-content {
+    width: 100%;
+    border-radius: $cust-border-radius;
+    overflow: hidden;
+    position: absolute;
+    top: calc($block-height + 10px);
+    display: flex;
+    flex-direction: column;
+    background-color: $secondary-color;
+    input {
+      margin: 0.5rem;
+      height: $block-height;
+      padding: $cust-padding;
+      border-radius: $cust-border-radius;
+      border: 1px solid lightgray;
+    }
+    input:focus {
+      outline: 0;
+    }
+    .item-list {
+      overflow: auto;
+      max-height: 250px;
+      ul {
+        list-style-type: none;
+        padding: 0;
+        margin: 0;
+        li {
+          display: flex;
+          align-items: center;
+          height: $block-height;
+          padding: $cust-padding;
+          cursor: pointer;
+        }
+        li:hover {
+          background-color: $primary-color;
+          color: $secondary-color;
+        }
+      }
+    }
+    .item-list::-webkit-scrollbar {
+      width: 6px;
+      background-color: lightgrey;
+      border-radius: $cust-border-radius;
+    }
+    .item-list::-webkit-scrollbar-thumb {
+      background-color: darkgrey;
+      border-radius: $cust-border-radius;
+    }
+  }
+}
